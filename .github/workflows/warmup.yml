@@ -1,0 +1,15 @@
+name: Warm Up Strapi
+
+on:
+  schedule:
+    - cron: "*/3 * * * *"  # every 3 minutes
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Strapi
+        run: |
+          curl https://pretty-melody-e3c2e84521.strapiapp.com/api/blog-posts || true
+          curl https://pretty-melody-e3c2e84521.strapiapp.com/api/categories || true
